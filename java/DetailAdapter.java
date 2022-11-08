@@ -3,7 +3,9 @@ package com.dongyang.gg;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.media.Image;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +19,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.dongyang.gg.MainActivity.nowid;
 
@@ -34,9 +40,16 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.CustomView
 
     public String IP_ADDRESS="15.164.98.47";
     private String TAG="uprice";
-    int result2=0;
+    //int result2=0;
     String updateprice=null;
     String inum="3";//수정해야함
+
+//    String path= Environment.getExternalStorageDirectory().getAbsolutePath()+"storage/emulated/0/DCIM/Camera";
+//    File directory=new File(path);
+//    File[] files=directory.listFiles();
+    String filename;
+
+    List<String> filesNameList = new ArrayList<>();
 
 
 
@@ -132,11 +145,28 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
 
+        filename=mList.get(position).getItem_pic();
         //viewholder.pic.setText(mList.get(position).getItem_pic());
         viewholder.name.setText(mList.get(position).getItem_name());
         viewholder.price.setText(mList.get(position).getItem_price());
         viewholder.intro.setText(mList.get(position).getItem_intro());
         //viewholder.num.setText(mList.get(position).getItem_num());
+
+        String url = "http://"+IP_ADDRESS+"/"+filename;
+        //Uri uri=url.toUri().buildUpon().scheme("https").build();
+        Uri uri=Uri.parse("http://"+IP_ADDRESS+"/"+filename);
+
+        try {
+
+            Glide.with(context)
+                    .load(uri)
+                    .override(300, 300)
+                    //.placeholder(R.drawable.ic_launcher_background)
+                    //.error(R.mipmap.ic_launcher)
+                    .into(viewholder.pic);
+        } catch (Exception e) {
+            Log.d("error - ", e.toString());
+        }
 
         updateprice=viewholder.udp.getText().toString();
 //        viewholder.update.setOnClickListener(new View.OnClickListener() {
