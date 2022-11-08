@@ -139,9 +139,9 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CustomViewHo
 //        }
 
         //img = (ImageView) findViewById(R.id.imageview);
-        String url = "http://"+IP_ADDRESS+"/uploads/"+filename;
+        String url = "http://"+IP_ADDRESS+"/"+filename;
         //Uri uri=url.toUri().buildUpon().scheme("https").build();
-        Uri uri=Uri.parse("http://"+IP_ADDRESS+"/uploads/"+filename);
+        Uri uri=Uri.parse("http://"+IP_ADDRESS+"/"+filename);
 
         try {
 
