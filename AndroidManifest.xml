@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dongyang.gg"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+
+
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.AppCompat.Light"
+        android:requestLegacyExternalStorage="true"
+        >
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDTFzHSNyRVezyj6Bz-T3za8ivGPtiE0kI" />
+
+        <activity android:name=".Initial_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".DetailListActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".My_profileActivity"/>
+
+        <activity
+            android:name=".Wish_ListActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+
+
+        <activity android:name=".Chat_ListviewActivity"/>
+
+
+        <activity android:name=".Chat_Activity"
+            tools:ignore="Instantiatable"
+            android:usesCleartextTraffic="true"
+            android:exported="true">
+
+        </activity>
+<!--        <activity android:name=".MySItemListActivity"-->
+<!--            tools:ignore="Instantiatable"-->
+<!--            android:usesCleartextTraffic="true"-->
+<!--            android:exported="true">-->
+
+<!--        </activity>-->
+        <activity android:name=".Bid_ListActivity"
+            tools:ignore="Instantiatable"
+            android:usesCleartextTraffic="true"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".Item_ListActivity"
+            tools:ignore="Instantiatable"
+            android:usesCleartextTraffic="true"
+            android:exported="true">
+
+
+
+        </activity>
+        <activity android:name=".Login_Activity"
+            tools:ignore="Instantiatable"
+            android:usesCleartextTraffic="true">
+
+        </activity>
+
+        <activity android:name=".Search_ListActivity"
+            tools:ignore="Instantiatable"
+            android:usesCleartextTraffic="true"
+            android:exported="true">
+
+        </activity>
+
+        <activity android:name=".ItemRegist"
+            tools:ignore="Instantiatable"
+            android:usesCleartextTraffic="true">
+
+        </activity>
+
+
+
+
+        <activity
+            android:name=".SignUpActivity"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+
+
+    </application>
+
+</manifest>
